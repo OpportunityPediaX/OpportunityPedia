@@ -14,6 +14,7 @@ import { Tooltip } from '@/app/components/common/Tooltip'
 import { useCurrentUser } from '@/app/providers/currentUserContext'
 import { useUiStore } from '@/app/store/useUiStore'
 import { Logo } from '@/shared/brand/Logo'
+// App shell shows the product lockup (OpportunityPedia by OpportunityX).
 import { cn } from '@/shared/cn'
 
 import { primaryNav, secondaryNav, type NavItem } from './navItems'
@@ -91,7 +92,7 @@ export function Sidebar({ collapsed, variant = 'desktop', onNavigate }: SidebarP
           aria-label="OpportunityPedia — Overview"
           className="inline-flex rounded-sm"
         >
-          <Logo asLink={false} variant={isCollapsed ? 'mark' : 'full'} />
+          <Logo asLink={false} entity="product" variant={isCollapsed ? 'mark' : 'full'} />
         </NavLink>
       </div>
 

@@ -7,6 +7,7 @@ import { SignalIndex } from '@/marketing/components/brand/SignalIndex';
 import { submitContactForm } from '@/marketing/lib/submitContactForm';
 import { contactFormSchema, contactReasons, type ContactFormValues } from '@/marketing/types/contact';
 import { track } from '@/marketing/lib/analytics';
+import { toast } from '@/app/store/useToastStore';
 import { cn } from '@/shared/cn';
 
 const fieldClasses =
@@ -53,8 +54,10 @@ export function ContactForm() {
       track('contact_submit', { reason: values.reason });
       setReference(result.reference);
       reset();
+      toast.success('Message sent', 'We will reply to the email you provided.');
     } else {
       setSubmitError(result.error);
+      toast.error('Could not send', result.error);
     }
   };
 
@@ -86,8 +89,8 @@ export function ContactForm() {
           <Button variant="secondary" onClick={() => setReference(null)}>
             Send another message
           </Button>
-          <LinkButton to="/products/opportunityx" variant="tertiary" arrow="right">
-            Explore OpportunityX
+          <LinkButton to="/products/opportunitypedia" variant="tertiary" arrow="right">
+            Explore OpportunityPedia
           </LinkButton>
         </div>
       </div>

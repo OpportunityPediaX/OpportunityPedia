@@ -29,8 +29,8 @@ export default function NotFoundPage() {
         <LinkButton to="/" size="lg">
           Back to homepage
         </LinkButton>
-        <LinkButton to="/products/opportunityx" variant="secondary" size="lg">
-          Explore OpportunityX
+        <LinkButton to="/products/opportunitypedia" variant="secondary" size="lg">
+          Explore OpportunityPedia
         </LinkButton>
       </div>
 

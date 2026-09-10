@@ -5,7 +5,7 @@ import { EditorialHeading } from '@/marketing/components/common/EditorialHeading
 import { LinkButton } from '@/marketing/components/common/Button';
 import { Reveal } from '@/marketing/components/common/Reveal';
 import { ProductCard } from '@/marketing/components/common/ProductCard';
-import { OpportunityXMark } from '@/shared/brand/Logo';
+import { OpportunityPediaMark } from '@/shared/brand/Logo';
 import { OpportunityXUI } from '@/marketing/components/visuals/OpportunityXUI';
 import { HowItWorks } from '@/marketing/components/sections/HowItWorks';
 import { FinalCta } from '@/marketing/components/sections/FinalCta';
@@ -17,23 +17,22 @@ export default function ProductsPage() {
   useSeo({
     title: 'Products',
     description:
-      'Products built around opportunity. OpportunityX is the flagship opportunity intelligence platform from OpportunityPedia, with further intelligence products in development.',
+      'OpportunityPedia is the flagship product from OpportunityX — helping teams find, prioritize and act on business opportunities.',
     path: '/products',
   });
 
   return (
     <>
       <PageHero
-        eyebrow="03 / OUR PRODUCTS"
+        eyebrow="OUR PRODUCTS"
         headline="Products built around opportunity."
-        lead="OpportunityPedia builds intelligence products that turn fragmented market signals into structured, actionable opportunity. OpportunityX is the first."
+        lead="OpportunityX builds tools that help teams see what matters and act on it. OpportunityPedia is the first."
         index={[
           { key: 'Active', value: '1 product' },
           { key: 'In development', value: 'Unannounced' },
         ]}
       />
 
-      {/* Flagship product */}
       <Section divider surface="white" aria-labelledby="flagship-heading">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-5">
@@ -42,24 +41,23 @@ export default function ProductsPage() {
                 Flagship product
               </p>
               <div className="mt-5">
-                <OpportunityXMark tone="default" className="[&>span]:text-[1.75rem]" />
+                <OpportunityPediaMark className="text-[1.75rem]" />
               </div>
               <EditorialHeading id="flagship-heading" size="display" className="mt-6">
-                Opportunity intelligence for teams that move first.
+                Find what matters. Act together.
               </EditorialHeading>
               <p className="mt-6 max-w-[34rem] text-lead text-graphite">
-                Bring vendors, RFPs, leadership signals, hiring activity and other business
-                opportunities into one coordinated workflow — discovered, prioritized, owned and
-                tracked in one place.
+                OpportunityPedia gives teams one place to discover opportunities, decide what needs
+                attention first, and follow through without losing context.
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <LinkButton
-                  to="/products/opportunityx"
+                  to="/products/opportunitypedia"
                   size="lg"
                   onClick={() => track('nav_product_click', { surface: 'products_page' })}
                 >
-                  Explore OpportunityX
+                  Explore OpportunityPedia
                 </LinkButton>
                 <LinkButton to="/contact" variant="secondary" size="lg">
                   Request access
@@ -83,7 +81,6 @@ export default function ProductsPage() {
 
       <HowItWorks />
 
-      {/* What's next — no invented products */}
       <Section divider surface="paper" aria-labelledby="whats-next-heading">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-4">
@@ -93,8 +90,8 @@ export default function ProductsPage() {
                 The roadmap is deliberately unnamed.
               </EditorialHeading>
               <p className="mt-6 max-w-[32rem] text-lead text-graphite">
-                We are researching further products in the opportunity intelligence space. We will
-                name them when there is something real to use.
+                We are researching further products. We will name them when there is something real
+                to use.
               </p>
             </Reveal>
           </div>
@@ -104,11 +101,11 @@ export default function ProductsPage() {
               <Reveal className="sm:col-span-2">
                 <ProductCard
                   status="Active · Flagship"
-                  wordmark={<OpportunityXMark />}
-                  description="Opportunity intelligence for teams that move first."
+                  wordmark={<OpportunityPediaMark tone="inverse" />}
+                  description="Find, prioritize and act on opportunities — in one place."
                   action={
                     <LinkButton
-                      to={site.opportunityXAppUrl}
+                      to={site.productAppUrl}
                       variant="inverse"
                       arrow="right"
                       className="bg-teal text-navy-deep hover:bg-teal-deep"
@@ -118,21 +115,30 @@ export default function ProductsPage() {
                   }
                 />
               </Reveal>
-              {[1, 2].map((slot) => (
-                <Reveal key={slot} delay={slot * 80} className="flex">
-                  <ProductCard
-                    tone="placeholder"
-                    status={`Slot ${String(slot).padStart(2, '0')}`}
-                    wordmark={
-                      <p className="text-[1.25rem] font-semibold tracking-[-0.02em] text-ink/40">
-                        Future intelligence product
-                      </p>
-                    }
-                    description="In development. Not yet announced."
-                    className="w-full"
-                  />
-                </Reveal>
-              ))}
+              <Reveal delay={80}>
+                <ProductCard
+                  status="In development"
+                  tone="placeholder"
+                  wordmark={
+                    <span className="text-[1.25rem] font-semibold tracking-[-0.02em] text-ink/40">
+                      Unannounced
+                    </span>
+                  }
+                  description="More products from OpportunityX — named when ready."
+                />
+              </Reveal>
+              <Reveal delay={140}>
+                <ProductCard
+                  status="In development"
+                  tone="placeholder"
+                  wordmark={
+                    <span className="text-[1.25rem] font-semibold tracking-[-0.02em] text-ink/40">
+                      Unannounced
+                    </span>
+                  }
+                  description="Research continues. Nothing invented for the brochure."
+                />
+              </Reveal>
             </div>
           </div>
         </div>

@@ -29,17 +29,17 @@ export const approachPillars = [
   {
     index: '01',
     title: 'Discover',
-    body: 'Bring relevant information from multiple approved sources into one structured environment.',
+    body: 'Bring what matters into one place, so teams stop hunting across disconnected systems.',
   },
   {
     index: '02',
-    title: 'Understand',
-    body: 'Transform individual signals into context that helps teams determine relevance and urgency.',
+    title: 'Prioritize',
+    body: 'Surface the opportunities that need attention first — without drowning in noise.',
   },
   {
     index: '03',
     title: 'Act',
-    body: 'Build products that connect intelligence directly to workflows.',
+    body: 'Move from finding to doing in one workflow, with ownership and follow-through intact.',
   },
 ] as const;
 
@@ -101,12 +101,12 @@ export const productBenefits = [
   {
     index: '01',
     title: 'Find earlier',
-    body: 'Discover signals across relevant sources before manual research catches them.',
+    body: 'See relevant opportunities before a morning of manual research catches them.',
   },
   {
     index: '02',
     title: 'Prioritize faster',
-    body: 'Separate high-intent opportunities from general market noise.',
+    body: 'Separate what needs attention now from general market noise.',
   },
   {
     index: '03',
@@ -127,32 +127,17 @@ export const workflowStages = [
   {
     index: '01',
     title: 'Discover',
-    body: 'Relevant signals arrive in one place instead of a dozen browser tabs.',
+    body: 'See relevant opportunities in one place instead of a dozen browser tabs.',
   },
   {
     index: '02',
     title: 'Prioritize',
-    body: 'Opportunities are classified so the urgent ones surface first.',
+    body: 'Know what needs attention first, so urgent work does not wait.',
   },
   {
     index: '03',
-    title: 'Assign',
-    body: 'An owner is attached before work starts, so effort is not duplicated.',
-  },
-  {
-    index: '04',
-    title: 'Outreach',
-    body: 'Contact happens with the originating context still attached.',
-  },
-  {
-    index: '05',
-    title: 'Track',
-    body: 'Status and activity stay visible to the whole team.',
-  },
-  {
-    index: '06',
-    title: 'Follow up',
-    body: 'Open opportunities resurface instead of going quiet.',
+    title: 'Act',
+    body: 'Assign, outreach and follow up without losing the original context.',
   },
 ] as const;
 
@@ -287,8 +272,8 @@ export const mockOpportunities: MockOpportunity[] = [
   {
     id: '0247',
     organization: 'Northbridge Health System',
-    title: 'Enterprise Cloud Modernization RFP',
-    category: 'RFP',
+    title: 'Enterprise modernization requirement',
+    category: 'Priority',
     temperature: 'very-hot',
     owner: null,
     updated: '14:32',
@@ -296,8 +281,8 @@ export const mockOpportunities: MockOpportunity[] = [
   {
     id: '0246',
     organization: 'Halden Logistics Group',
-    title: 'New CTO appointed',
-    category: 'Leadership',
+    title: 'Leadership change detected',
+    category: 'Watch',
     temperature: 'very-hot',
     owner: 'A. Rao',
     updated: '13:58',
@@ -305,8 +290,8 @@ export const mockOpportunities: MockOpportunity[] = [
   {
     id: '0244',
     organization: 'Meridian Utilities',
-    title: '120 new engineering roles posted',
-    category: 'Hiring',
+    title: 'Capability expansion underway',
+    category: 'Growth',
     temperature: 'hot',
     owner: 'S. Iyer',
     updated: '11:20',
@@ -314,8 +299,8 @@ export const mockOpportunities: MockOpportunity[] = [
   {
     id: '0241',
     organization: 'Coastline Retail Partners',
-    title: 'Regional distribution centre announced',
-    category: 'Expansion',
+    title: 'New regional footprint',
+    category: 'Growth',
     temperature: 'hot',
     owner: null,
     updated: '09:42',
@@ -323,8 +308,8 @@ export const mockOpportunities: MockOpportunity[] = [
   {
     id: '0238',
     organization: 'Arcline Manufacturing',
-    title: 'Managed services vendor requirement',
-    category: 'Vendor Requirement',
+    title: 'Supplier need stated',
+    category: 'Priority',
     temperature: 'warm',
     owner: 'D. Mehta',
     updated: 'Yesterday',
@@ -332,8 +317,8 @@ export const mockOpportunities: MockOpportunity[] = [
   {
     id: '0233',
     organization: 'Vantage Financial',
-    title: 'Data platform investment referenced',
-    category: 'Technology Investment',
+    title: 'Platform investment referenced',
+    category: 'Watch',
     temperature: 'watch',
     owner: null,
     updated: 'Yesterday',
@@ -349,21 +334,20 @@ export const temperatureDefinitions: {
     temperature: 'very-hot',
     summary: 'An explicit, time-bound requirement is on the table.',
     examples: [
-      'Active RFP',
-      'Open leadership requirement',
-      'Immediate procurement',
-      'Explicit vendor opportunity',
+      'Active requirement',
+      'Immediate need',
+      'Named owner opportunity',
     ],
   },
   {
     temperature: 'hot',
     summary: 'Strong indicators of near-term commercial activity.',
-    examples: ['Sustained hiring in a relevant function', 'Announced expansion', 'New funding'],
+    examples: ['Sustained activity in a relevant area', 'Announced expansion', 'New capacity'],
   },
   {
     temperature: 'warm',
     summary: 'Relevant movement without a stated requirement yet.',
-    examples: ['Partnership activity', 'Stated technology direction', 'Organizational change'],
+    examples: ['Partnership activity', 'Stated direction', 'Organizational change'],
   },
   {
     temperature: 'watch',

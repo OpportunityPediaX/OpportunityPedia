@@ -28,18 +28,38 @@ import {
 import { RouteFallback } from './RouteFallback'
 
 /**
- * One router for both halves of the product: the public site at `/` and the
- * OpportunityX application at `/app/*`. The homepage ships in the initial
- * chunk; everything else — the whole application included — is split, so
- * visitors to the marketing site never download the product.
+ * One router for marketing (`/`), product (`/app/*`), customer sign-in
+ * (`/login`), and the hidden admin console (`/admin/*`).
  */
 
 const AppProviders = lazy(() => import('@/app/AppProviders'))
+const LoginPage = lazy(() => import('@/app/pages/LoginPage'))
+const AdminLoginPage = lazy(() => import('@/app/pages/admin/AdminLoginPage'))
+const AdminApp = lazy(() => import('@/app/pages/admin/AdminApp'))
+const AdminUsersPage = lazy(() =>
+  import('@/app/pages/admin/AdminApp').then((m) => ({ default: m.AdminUsersPage })),
+)
 
-/** Route elements are split, so each one needs a boundary to suspend against. */
 const split = (node: ReactNode) => <Suspense fallback={<RouteFallback />}>{node}</Suspense>
 
 export const router = createBrowserRouter([
+  {
+    path: '/login',
+    element: split(<LoginPage />),
+  },
+  {
+    path: '/admin/login',
+    element: split(<AdminLoginPage />),
+  },
+  {
+    path: '/admin',
+    element: split(<AdminApp />),
+    children: [
+      { index: true, element: <Navigate to="/admin/users" replace /> },
+      { path: 'users', element: split(<AdminUsersPage />) },
+      { path: '*', element: <Navigate to="/admin/users" replace /> },
+    ],
+  },
   {
     path: '/app',
     element: split(<AppProviders />),
@@ -49,8 +69,6 @@ export const router = createBrowserRouter([
       {
         path: 'opportunities',
         element: <OpportunitiesPage />,
-        // Nested so the detail panel opens over the list it came from while
-        // still being reachable through a direct link.
         children: [{ path: ':id', element: <OpportunityRouteDrawer /> }],
       },
       { path: 'vendors', element: <VendorsPage /> },
@@ -66,7 +84,8 @@ export const router = createBrowserRouter([
     children: [
       { index: true, element: <HomePage /> },
       { path: 'products', element: split(<ProductsPage />) },
-      { path: 'products/opportunityx', element: split(<OpportunityXPage />) },
+      { path: 'products/opportunitypedia', element: split(<OpportunityXPage />) },
+      { path: 'products/opportunityx', element: <Navigate to="/products/opportunitypedia" replace /> },
       { path: 'company', element: split(<CompanyPage />) },
       { path: 'careers', element: split(<CareersPage />) },
       { path: 'contact', element: split(<ContactPage />) },

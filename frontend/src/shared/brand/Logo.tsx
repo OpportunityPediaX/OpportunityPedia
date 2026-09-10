@@ -8,14 +8,10 @@ const MARK_W = 160;
 const MARK_H = 192;
 
 /**
- * BrandMark — the official OpportunityPedia mark.
+ * BrandMark — shared mark artwork for OpportunityX / OpportunityPedia.
  *
  * The source artwork shipped as opaque RGB on a white field; `scripts/logo-build.mjs`
  * keys out that white, trims to the artwork and writes the two tones used here.
- * Re-run it if the source file is ever replaced.
- *
- * The mark is taller than it is wide, so it is sized by height and left to
- * find its own width — never forced into a square box.
  */
 export function BrandMark({
   className,
@@ -23,9 +19,7 @@ export function BrandMark({
   alt = '',
 }: {
   className?: string;
-  /** `inverse` swaps the navy for paper so the mark survives dark surfaces. */
   tone?: 'default' | 'inverse';
-  /** Leave empty when an ancestor already names the logo. */
   alt?: string;
 }) {
   return (
@@ -43,26 +37,30 @@ export function BrandMark({
 type LogoProps = {
   className?: string;
   tone?: 'default' | 'inverse';
-  /** `mark` hides the wordmark for tight spaces. */
   variant?: 'full' | 'mark';
-  /** Renders as a home link with an accessible name. */
   asLink?: boolean;
+  /**
+   * `company` — OpportunityX (marketing site).
+   * `product` — OpportunityPedia (app shell).
+   */
+  entity?: 'company' | 'product';
 };
 
 /**
- * Logo lockup: mark + wordmark over the OpportunityX endorsement line.
- *
- * The sizes are tuned to measured metrics, so change them together: with
- * leading collapsed the 17px wordmark, 3px gap and 10px endorsement stack to
- * exactly the mark's 30px, and the endorsement's glyph run lands at ~88% of
- * the wordmark's so the block tapers. Widths within a few pixels of each
- * other are worse than either extreme — they read as a missed alignment
- * rather than a deliberate one. The mark then overshoots cap-height slightly
- * more at the top than the baseline does at the bottom, which is what keeps
- * it visually level with the heavier first line.
+ * Logo lockup. Marketing uses the company name; the app uses the product name
+ * with a quiet company endorsement underneath.
  */
-export function Logo({ className, tone = 'default', variant = 'full', asLink = true }: LogoProps) {
+export function Logo({
+  className,
+  tone = 'default',
+  variant = 'full',
+  asLink = true,
+  entity = 'company',
+}: LogoProps) {
   const inverse = tone === 'inverse';
+  const primary = entity === 'company' ? 'OpportunityX' : 'OpportunityPedia';
+  const homeTo = entity === 'company' ? '/' : '/app/overview';
+  const ariaLabel = entity === 'company' ? 'OpportunityX — home' : 'OpportunityPedia — home';
 
   const inner = (
     <span className={cn('inline-flex items-center gap-[0.5625rem]', className)}>
@@ -75,19 +73,29 @@ export function Logo({ className, tone = 'default', variant = 'full', asLink = t
               inverse ? 'text-white' : 'text-ink',
             )}
           >
-            OpportunityPedia
-          </span>
-          <span
-            className={cn(
-              'text-[0.625rem] leading-none tracking-[-0.005em] whitespace-nowrap',
-              inverse ? 'text-white/55' : 'text-graphite',
+            {entity === 'company' ? (
+              <>
+                Opportunity
+                <span className={inverse ? 'text-teal' : 'text-teal-ink'}>X</span>
+              </>
+            ) : (
+              primary
             )}
-          >
-            Powered by{' '}
-            <span className={cn('font-medium', inverse ? 'text-white/80' : 'text-ink/75')}>
-              Opportunity<span className={inverse ? 'text-teal' : 'text-teal-ink'}>X</span>
-            </span>
           </span>
+          {entity === 'product' ? (
+            <span
+              className={cn(
+                'text-[0.625rem] leading-none tracking-[-0.005em] whitespace-nowrap',
+                inverse ? 'text-white/55' : 'text-graphite',
+              )}
+            >
+              by{' '}
+              <span className={cn('font-medium', inverse ? 'text-white/80' : 'text-ink/75')}>
+                Opportunity
+                <span className={inverse ? 'text-teal' : 'text-teal-ink'}>X</span>
+              </span>
+            </span>
+          ) : null}
         </span>
       ) : null}
     </span>
@@ -96,20 +104,13 @@ export function Logo({ className, tone = 'default', variant = 'full', asLink = t
   if (!asLink) return inner;
 
   return (
-    <Link
-      to="/"
-      aria-label="OpportunityPedia — home"
-      className="inline-flex rounded-sm"
-    >
+    <Link to={homeTo} aria-label={ariaLabel} className="inline-flex rounded-sm">
       {inner}
     </Link>
   );
 }
 
-/**
- * OpportunityX product wordmark. The product carries navy + teal, distinct
- * from the parent company's forest identity.
- */
+/** Compact OpportunityX wordmark for menus and product cards. */
 export function OpportunityXMark({
   className,
   tone = 'inverse',
@@ -135,6 +136,27 @@ export function OpportunityXMark({
       >
         X
       </span>
+    </span>
+  );
+}
+
+/** Compact OpportunityPedia wordmark for product surfaces. */
+export function OpportunityPediaMark({
+  className,
+  tone = 'default',
+}: {
+  className?: string;
+  tone?: 'default' | 'inverse';
+}) {
+  return (
+    <span
+      className={cn(
+        'text-[1.375rem] leading-none font-semibold tracking-[-0.03em]',
+        tone === 'inverse' ? 'text-white' : 'text-ink',
+        className,
+      )}
+    >
+      OpportunityPedia
     </span>
   );
 }

@@ -3,7 +3,7 @@ import { SectionLabel } from '@/marketing/components/common/SectionLabel';
 import { EditorialHeading } from '@/marketing/components/common/EditorialHeading';
 import { LinkButton } from '@/marketing/components/common/Button';
 import { Reveal } from '@/marketing/components/common/Reveal';
-import { BrandMark } from '@/shared/brand/Logo';
+import { OpportunityPediaMark } from '@/shared/brand/Logo';
 import { SignalIndex } from '@/marketing/components/brand/SignalIndex';
 import { ProductInteractionPreview } from '@/marketing/components/visuals/ProductInteractionPreview';
 import { site } from '@/marketing/data/site';
@@ -12,14 +12,11 @@ import { track } from '@/marketing/lib/analytics';
 /**
  * The flagship product section. The dark product stage below the copy is what
  * separates this from the surrounding editorial sections.
- *
- * The mark carries no wordmark here — the heading names the product, and the
- * full lockup would repeat it a line above itself.
  */
 export function ProductShowcase() {
   return (
     <section
-      id="opportunityx"
+      id="opportunitypedia"
       aria-labelledby="product-heading"
       className="border-t border-mist bg-paper-warm py-section"
     >
@@ -32,7 +29,7 @@ export function ProductShowcase() {
                 Flagship product
               </p>
               <div className="mt-5">
-                <BrandMark className="h-10" />
+                <OpportunityPediaMark className="text-[1.75rem]" />
               </div>
             </Reveal>
           </div>
@@ -53,7 +50,7 @@ export function ProductShowcase() {
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <LinkButton
-                  to={site.opportunityXAppUrl}
+                  to={site.productAppUrl}
                   size="lg"
                   onClick={() => track('nav_product_click', { surface: 'showcase' })}
                 >

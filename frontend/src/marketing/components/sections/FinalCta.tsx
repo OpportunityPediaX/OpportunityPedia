@@ -2,7 +2,6 @@ import { Container } from '@/marketing/components/layout/Container';
 import { EditorialHeading } from '@/marketing/components/common/EditorialHeading';
 import { LinkButton } from '@/marketing/components/common/Button';
 import { Reveal } from '@/marketing/components/common/Reveal';
-import { SignalIndex } from '@/marketing/components/brand/SignalIndex';
 import { site } from '@/marketing/data/site';
 import { track } from '@/marketing/lib/analytics';
 
@@ -32,7 +31,7 @@ export function FinalCta() {
                 <span className="text-white/55">We help make it visible.</span>
               </EditorialHeading>
               <p className="mt-7 max-w-[34rem] text-lead text-white/65">
-                Explore the first product from OpportunityPedia.
+                Explore OpportunityPedia — the flagship product from OpportunityX.
               </p>
             </Reveal>
           </div>
@@ -41,12 +40,12 @@ export function FinalCta() {
             <Reveal delay={100}>
               <div className="flex flex-col gap-3 sm:flex-row lg:flex-col lg:items-stretch">
                 <LinkButton
-                  to={site.opportunityXAppUrl}
+                  to={site.productAppUrl}
                   variant="inverse"
                   size="lg"
                   onClick={() => track('nav_product_click', { surface: 'final_cta' })}
                 >
-                  Explore OpportunityX
+                  Explore OpportunityPedia
                 </LinkButton>
                 <LinkButton
                   to="/contact"
@@ -57,15 +56,6 @@ export function FinalCta() {
                   Talk to us
                 </LinkButton>
               </div>
-              <SignalIndex
-                tone="inverse"
-                layout="stack"
-                className="mt-8 border-t border-white/15 pt-5"
-                entries={[
-                  { key: 'Company', value: 'OpportunityPedia' },
-                  { key: 'Flagship', value: 'OpportunityX' },
-                ]}
-              />
             </Reveal>
           </div>
         </div>

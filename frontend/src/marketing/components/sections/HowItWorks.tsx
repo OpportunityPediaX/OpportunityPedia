@@ -7,9 +7,8 @@ import { workflowStages } from '@/marketing/data/content';
 import { useInView } from '@/marketing/hooks/useInView';
 
 /**
- * The six-stage product pipeline. One horizontal run on desktop, stacked with
- * a spine on mobile. Each stage carries a single sentence — the detail belongs
- * on the product page, not here.
+ * Three outcome stages for OpportunityPedia — what using the product feels
+ * like, not how information is collected.
  */
 export function HowItWorks() {
   const { ref, inView } = useInView<HTMLDivElement>({ rootMargin: '0px 0px -15% 0px' });
@@ -19,16 +18,18 @@ export function HowItWorks() {
     <Section divider surface="white" aria-labelledby="how-heading">
       <div className="max-w-[40rem]">
         <Reveal>
-          <SectionLabel>HOW OPPORTUNITYX WORKS</SectionLabel>
+          <SectionLabel>HOW OPPORTUNITYPEDIA HELPS</SectionLabel>
           <EditorialHeading id="how-heading" size="display" className="mt-6">
-            Six stages, one workflow.
+            Discover. Prioritize. Act.
           </EditorialHeading>
+          <p className="mt-6 max-w-[34rem] text-lead text-graphite">
+            A simple loop teams can run every day — without learning a new research process.
+          </p>
         </Reveal>
       </div>
 
       <div ref={ref} className="mt-14 md:mt-16">
-        {/* Desktop pipeline */}
-        <div className="relative hidden lg:block">
+        <div className="relative hidden md:block">
           <div className="absolute inset-x-0 top-[2.6rem] h-px bg-mist" aria-hidden="true">
             <div
               data-visible={visible}
@@ -37,12 +38,12 @@ export function HowItWorks() {
             />
           </div>
 
-          <ol className="relative grid grid-cols-6">
+          <ol className="relative grid grid-cols-3">
             {workflowStages.map((stage, i) => (
               <li
                 key={stage.index}
                 data-visible={visible}
-                className="reveal pr-5 last:pr-0"
+                className="reveal pr-8 last:pr-0"
                 style={{ '--reveal-delay': `${160 + i * 110}ms` } as CSSProperties}
               >
                 <p className="text-[0.8125rem] font-semibold tracking-[0.1em] text-forest uppercase">
@@ -58,8 +59,7 @@ export function HowItWorks() {
           </ol>
         </div>
 
-        {/* Stacked */}
-        <ol className="relative lg:hidden">
+        <ol className="relative md:hidden">
           <div
             className="absolute top-2 bottom-2 left-[0.3125rem] w-px bg-mist"
             aria-hidden="true"

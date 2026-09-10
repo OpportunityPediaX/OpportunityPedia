@@ -20,7 +20,7 @@ export function Approach() {
         <div className="lg:col-span-9">
           <Reveal>
             <EditorialHeading id="approach-heading" size="display" className="max-w-[24ch]">
-              From scattered signals to structured opportunity.
+              From scattered information to a clear next step.
             </EditorialHeading>
           </Reveal>
         </div>

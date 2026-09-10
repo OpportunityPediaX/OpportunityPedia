@@ -5,8 +5,6 @@ import { EditorialHeading, SerifAccent } from '@/marketing/components/common/Edi
 import { LinkButton } from '@/marketing/components/common/Button';
 import { Reveal } from '@/marketing/components/common/Reveal';
 import { Philosophy } from '@/marketing/components/sections/Philosophy';
-import { DataResponsibility } from '@/marketing/components/sections/DataResponsibility';
-import { FutureEcosystem } from '@/marketing/components/sections/FutureEcosystem';
 import { FinalCta } from '@/marketing/components/sections/FinalCta';
 import { useSeo } from '@/marketing/hooks/useSeo';
 
@@ -14,7 +12,7 @@ export default function CompanyPage() {
   useSeo({
     title: 'Company',
     description:
-      'OpportunityPedia is an opportunity intelligence company. Our thesis, how we think, and what we are building around discovering and acting on business opportunity.',
+      'OpportunityX builds products that make business opportunity easier to see and act on. Meet the team behind OpportunityPedia.',
     path: '/company',
   });
 
@@ -23,15 +21,14 @@ export default function CompanyPage() {
       <PageHero
         eyebrow="COMPANY"
         headline="We believe the next opportunity should be easier to find."
-        lead="OpportunityPedia builds intelligence products that transform fragmented market signals into clear opportunities for action."
+        lead="OpportunityX builds products that help teams see what matters — and act before it disappears."
         index={[
-          { key: 'Category', value: 'Opportunity Intelligence' },
-          { key: 'Flagship', value: 'OpportunityX' },
+          { key: 'Company', value: 'OpportunityX' },
+          { key: 'Flagship', value: 'OpportunityPedia' },
           { key: 'Stage', value: 'Building' },
         ]}
       />
 
-      {/* Our thesis */}
       <Section divider surface="white" aria-labelledby="thesis-heading">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-3">
@@ -48,14 +45,12 @@ export default function CompanyPage() {
 
               <div className="mt-10 grid max-w-[56rem] gap-8 border-t border-mist pt-8 md:grid-cols-2 md:gap-12">
                 <p className="text-lead text-graphite">
-                  Almost every commercial signal a team needs is already public. Procurement
-                  portals, career pages, announcements, filings and industry resources publish it
-                  continuously.
+                  The information teams need already exists across the open web. Finding it,
+                  trusting it, and acting on it in time is the hard part.
                 </p>
                 <p className="text-lead text-graphite">
-                  What is missing is structure. The signals are fragmented across systems that were
-                  never designed to be read together, which turns a research problem into a
-                  coordination problem.
+                  What is missing is clarity. OpportunityX exists to turn that scattered picture
+                  into a clear next step.
                 </p>
               </div>
             </Reveal>
@@ -63,29 +58,26 @@ export default function CompanyPage() {
         </div>
       </Section>
 
-      {/* Why OpportunityPedia */}
       <Section divider surface="paper" aria-labelledby="why-heading">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-3">
             <Reveal>
-              <SectionLabel index="02">WHY OPPORTUNITYPEDIA</SectionLabel>
+              <SectionLabel index="02">WHY OPPORTUNITYX</SectionLabel>
             </Reveal>
           </div>
           <div className="lg:col-span-9">
             <Reveal>
               <EditorialHeading id="why-heading" size="display" className="max-w-[22ch]">
-                A reference layer, not another feed.
+                Clarity over volume.
               </EditorialHeading>
               <div className="mt-10 grid max-w-[56rem] gap-8 border-t border-mist pt-8 md:grid-cols-2 md:gap-12">
                 <p className="text-lead text-graphite">
-                  &ldquo;Pedia&rdquo; is the deliberate half of the name. The work is indexing,
-                  organizing and making information referenceable — the same discipline behind any
-                  serious reference system.
+                  We build for teams who do not need more tabs open — they need a shorter path from
+                  &ldquo;something changed&rdquo; to &ldquo;here is what we do next.&rdquo;
                 </p>
                 <p className="text-lead text-graphite">
-                  &ldquo;Opportunity&rdquo; is the other half: movement, timing and potential. The
-                  company exists at the point where a well-organized index turns into a decision
-                  someone can act on today.
+                  OpportunityPedia is our first product: one place to discover opportunities,
+                  prioritize what matters, and follow through together.
                 </p>
               </div>
             </Reveal>
@@ -95,68 +87,34 @@ export default function CompanyPage() {
 
       <Philosophy />
 
-      {/* What we're building */}
       <Section divider surface="white" aria-labelledby="building-heading">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-3">
             <Reveal>
-              <SectionLabel index="05">WHAT WE&rsquo;RE BUILDING</SectionLabel>
+              <SectionLabel index="03">WHAT WE&rsquo;RE BUILDING</SectionLabel>
             </Reveal>
           </div>
           <div className="lg:col-span-9">
             <Reveal>
               <EditorialHeading id="building-heading" size="display" className="max-w-[22ch]">
-                Building an opportunity intelligence company.
+                Building products around opportunity.
               </EditorialHeading>
               <div className="mt-10 grid max-w-[56rem] gap-8 border-t border-mist pt-8 md:grid-cols-2 md:gap-12">
                 <p className="text-lead text-graphite">
-                  OpportunityPedia was created around a simple observation: teams spend enormous
-                  amounts of time searching for information that already exists.
+                  OpportunityX started from a simple observation: teams spend enormous amounts of
+                  time searching for information that already exists.
                 </p>
                 <p className="text-lead text-graphite">
-                  Our goal is to organize that information into products that help people
-                  understand what matters, when it matters, and what to do next.
+                  Our goal is to organize that into products that help people understand what
+                  matters, when it matters, and what to do next.
                 </p>
               </div>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-                <LinkButton to="/products/opportunityx" size="lg">
-                  Explore OpportunityX
+                <LinkButton to="/products/opportunitypedia" size="lg">
+                  Explore OpportunityPedia
                 </LinkButton>
                 <LinkButton to="/careers" variant="secondary" size="lg">
                   Join the team
-                </LinkButton>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </Section>
-
-      <FutureEcosystem />
-      <DataResponsibility />
-
-      {/* Team — extensible, no invented people */}
-      <Section divider surface="white" aria-labelledby="team-heading">
-        <div className="grid gap-10 lg:grid-cols-12 lg:gap-10">
-          <div className="lg:col-span-3">
-            <Reveal>
-              <SectionLabel>TEAM</SectionLabel>
-            </Reveal>
-          </div>
-          <div className="lg:col-span-9">
-            <Reveal>
-              <EditorialHeading id="team-heading" size="title">
-                The team page is coming.
-              </EditorialHeading>
-              <p className="mt-5 max-w-[42rem] text-[1.0625rem] leading-relaxed text-graphite">
-                We would rather leave this blank than fill it with stock portraits. Real profiles
-                will appear here as the team grows.
-              </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-                <LinkButton to="/careers" variant="secondary">
-                  Open roles
-                </LinkButton>
-                <LinkButton to="/contact" variant="tertiary" arrow="right">
-                  Contact us
                 </LinkButton>
               </div>
             </Reveal>

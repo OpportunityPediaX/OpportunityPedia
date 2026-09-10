@@ -19,7 +19,7 @@ export function Footer() {
               layout="stack"
               entries={[
                 { key: 'Category', value: 'Opportunity Intelligence' },
-                { key: 'Flagship', value: 'OpportunityX' },
+                { key: 'Flagship', value: 'OpportunityPedia' },
               ]}
             />
           </div>

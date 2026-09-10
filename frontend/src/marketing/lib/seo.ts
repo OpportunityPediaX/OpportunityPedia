@@ -1,4 +1,4 @@
-const SITE_NAME = 'OpportunityPedia';
+const SITE_NAME = 'OpportunityX';
 const SITE_ORIGIN = 'https://opportunitypedia.com';
 
 export type SeoInput = {

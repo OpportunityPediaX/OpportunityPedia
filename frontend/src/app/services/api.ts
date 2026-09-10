@@ -27,6 +27,9 @@ export function setAuthTokenProvider(provider: () => string | null): void {
 }
 
 api.interceptors.request.use((config) => {
+  // Leave an explicit Authorization header alone (admin calls pass their own).
+  const existing = config.headers.Authorization
+  if (existing) return config
   const token = authTokenProvider()
   if (token) {
     config.headers.Authorization = `Bearer ${token}`

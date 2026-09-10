@@ -4,7 +4,7 @@ import { X } from 'lucide-react';
 import { Logo } from '@/shared/brand/Logo';
 import { LinkButton } from '@/marketing/components/common/Button';
 import { SignalIndex } from '@/marketing/components/brand/SignalIndex';
-import { primaryNav, site } from '@/marketing/data/site';
+import { primaryNav } from '@/marketing/data/site';
 import { useLockBodyScroll } from '@/marketing/hooks/useLockBodyScroll';
 import { track } from '@/marketing/lib/analytics';
 import { cn } from '@/shared/cn';
@@ -100,25 +100,16 @@ export function MobileNavigation({ open, onClose }: MobileNavigationProps) {
         </ul>
 
         <div className="mt-8 grid gap-3">
-          <LinkButton
-            to={site.opportunityXAppUrl}
-            variant="secondary"
-            size="lg"
-            arrow="right"
-            onClick={() => {
-              track('nav_product_click', { product: 'opportunityx', surface: 'mobile_menu' });
-              onClose();
-            }}
-          >
-            Explore OpportunityX
+          <LinkButton to="/login" variant="secondary" size="lg" onClick={onClose}>
+            Sign in
           </LinkButton>
           <LinkButton
             to="/contact"
             variant="primary"
             size="lg"
             onClick={() => {
-              track('cta_talk_to_us_click', { surface: 'mobile_menu' });
-              onClose();
+              track('cta_talk_to_us_click', { surface: 'mobile_menu' })
+              onClose()
             }}
           >
             Talk to us
@@ -129,7 +120,7 @@ export function MobileNavigation({ open, onClose }: MobileNavigationProps) {
       <div className="shrink-0 border-t border-mist px-gutter py-4">
         <SignalIndex
           entries={[
-            { key: 'Company', value: 'OpportunityPedia' },
+            { key: 'Company', value: 'OpportunityX' },
             { key: 'Category', value: 'Opportunity Intelligence' },
           ]}
           layout="stack"

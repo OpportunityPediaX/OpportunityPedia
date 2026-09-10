@@ -4,7 +4,7 @@ import { ChevronDown, Menu } from 'lucide-react';
 import { Logo } from '@/shared/brand/Logo';
 import { LinkButton } from '@/marketing/components/common/Button';
 import { Container } from '@/marketing/components/layout/Container';
-import { primaryNav, site } from '@/marketing/data/site';
+import { primaryNav } from '@/marketing/data/site';
 import { useScrolled } from '@/marketing/hooks/useScrolled';
 import { track } from '@/marketing/lib/analytics';
 import { cn } from '@/shared/cn';
@@ -127,16 +127,8 @@ export function Navbar() {
 
             <div className="flex items-center gap-2 md:gap-3">
               <div className="hidden items-center gap-3 lg:flex">
-                <LinkButton
-                  to={site.opportunityXAppUrl}
-                  variant="tertiary"
-                  arrow="right"
-                  className="text-[0.9375rem] text-graphite hover:text-ink"
-                  onClick={() =>
-                    track('nav_product_click', { product: 'opportunityx', surface: 'navbar' })
-                  }
-                >
-                  Explore OpportunityX
+                <LinkButton to="/login" variant="secondary">
+                  Sign in
                 </LinkButton>
                 <LinkButton
                   to="/contact"

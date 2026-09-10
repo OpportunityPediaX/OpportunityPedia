@@ -4,8 +4,7 @@ import { EditorialHeading, SerifAccent } from '@/marketing/components/common/Edi
 import { Reveal } from '@/marketing/components/common/Reveal';
 
 /**
- * Editorial break after the hero. Deliberately close to a printed page:
- * one index marker, one statement, two paragraphs, a lot of air.
+ * Editorial break after the hero. One statement, two short paragraphs.
  */
 export function Thesis() {
   return (
@@ -30,15 +29,14 @@ export function Thesis() {
           <div className="mt-10 grid gap-8 border-t border-mist pt-8 md:grid-cols-2 md:gap-12 lg:mt-14 lg:pt-10">
             <Reveal delay={80}>
               <p className="text-lead text-graphite">
-                Businesses search through dozens of websites, portals and information sources every
-                day trying to identify their next customer, vendor, partnership, RFP or market
-                opportunity.
+                Teams spend hours every day searching across websites, portals and documents just to
+                find the next customer, partner or market move.
               </p>
             </Reveal>
             <Reveal delay={160}>
               <p className="text-lead text-graphite">
-                OpportunityPedia is building the intelligence layer that connects those signals —
-                so the work of finding what matters stops being manual.
+                OpportunityX builds OpportunityPedia so that work stops being a manual scavenger
+                hunt — and starts being a clear path from finding to acting.
               </p>
             </Reveal>
           </div>

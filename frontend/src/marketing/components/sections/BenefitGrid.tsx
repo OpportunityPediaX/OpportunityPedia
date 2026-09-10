@@ -14,7 +14,7 @@ export function BenefitGrid() {
               Intelligence that leads somewhere.
             </EditorialHeading>
             <p className="mt-6 max-w-[30rem] text-lead text-graphite">
-              What changes for a team using OpportunityX, stated as outcomes rather than a
+              What changes for a team using OpportunityPedia, stated as outcomes rather than a
               feature list.
             </p>
           </Reveal>

@@ -1,7 +1,7 @@
 import * as Switch from '@radix-ui/react-switch'
 import { Mail, ShieldCheck } from 'lucide-react'
 import { useState } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 
 import { UserAvatar } from '@/app/components/common/Avatar'
 import { Button } from '@/app/components/common/Button'
@@ -9,6 +9,7 @@ import { Field, Select, TextInput } from '@/app/components/forms/Field'
 import { PageHeader } from '@/app/components/layout/PageHeader'
 import { Panel, PanelHeader } from '@/app/components/layout/Panel'
 import { useCurrentUser } from '@/app/providers/currentUserContext'
+import { useAuthStore } from '@/app/store/useAuthStore'
 import { toast } from '@/app/store/useToastStore'
 import { cn } from '@/shared/cn'
 
@@ -53,12 +54,28 @@ function ToggleRow({
 
 export function SettingsPage() {
   const { user, team } = useCurrentUser()
+  const navigate = useNavigate()
+  const clearUserSession = useAuthStore((s) => s.clearUserSession)
   const [searchParams, setSearchParams] = useSearchParams()
   const section = (searchParams.get('section') as SectionId | null) ?? 'profile'
 
+  function signOut() {
+    clearUserSession()
+    toast.info('Signed out')
+    navigate('/login', { replace: true })
+  }
+
   return (
     <div className="space-y-5">
-      <PageHeader title="Settings" subtitle="Manage your profile, workspace and preferences." />
+      <PageHeader
+        title="Settings"
+        subtitle="Manage your profile, workspace and preferences."
+        actions={
+          <Button type="button" variant="secondary" size="sm" onClick={signOut}>
+            Sign out
+          </Button>
+        }
+      />
 
       <div className="grid gap-5 lg:grid-cols-[200px_1fr]">
         <nav aria-label="Settings sections" className="min-w-0 lg:sticky lg:top-20 lg:self-start">

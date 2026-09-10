@@ -37,7 +37,7 @@ const steps: Step[] = [
     state: idleState,
   },
   {
-    caption: 'Enterprise Cloud Modernization RFP is the most urgent in the queue.',
+    caption: 'The top item needs attention now — work it first.',
     state: { ...idleState, selectedId: SELECTED },
   },
   {

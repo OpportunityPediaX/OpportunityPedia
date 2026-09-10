@@ -1,20 +1,22 @@
 /**
- * Single source of truth for navigation, external product links and copy that
- * repeats across pages.
+ * Single source of truth for navigation, product links and copy that repeats
+ * across the marketing site.
+ *
+ * Brand roles:
+ *   OpportunityX     — company / this website
+ *   OpportunityPedia — flagship product (`/app`)
  */
 export const site = {
-  name: 'OpportunityPedia',
+  name: 'OpportunityX',
+  productName: 'OpportunityPedia',
   tagline: 'We make opportunity easier to see.',
   description:
-    'OpportunityPedia builds intelligence products that transform fragmented market signals into clear opportunities for action.',
-  footerDescription:
-    'Building intelligence products for discovering and acting on opportunity.',
+    'OpportunityX builds products that help teams see business opportunity clearly — and act on it before it disappears.',
+  footerDescription: 'Building products that make opportunity easier to see and act on.',
   copyrightYear: 2026,
-  /**
-   * Entry point into the OpportunityX application. The `/products/opportunityx`
-   * marketing page is still linked separately from the Products menu — this is
-   * the "go and use it" destination, not the "read about it" one.
-   */
+  /** Live product entry — "go use it", not the marketing overview. */
+  productAppUrl: '/app/overview',
+  /** @deprecated Use productAppUrl. Kept so older imports keep compiling. */
   opportunityXAppUrl: '/app/overview',
 } as const;
 
@@ -38,7 +40,7 @@ export const footerNav: { heading: string; items: NavItem[] }[] = [
   },
   {
     heading: 'Products',
-    items: [{ label: 'OpportunityX', to: '/products/opportunityx' }],
+    items: [{ label: 'OpportunityPedia', to: '/products/opportunitypedia' }],
   },
   {
     heading: 'Legal',

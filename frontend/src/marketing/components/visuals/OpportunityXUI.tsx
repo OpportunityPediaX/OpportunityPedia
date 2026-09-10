@@ -10,7 +10,7 @@ import {
   Target,
   Users,
 } from 'lucide-react';
-import { OpportunityXMark } from '@/shared/brand/Logo';
+import { OpportunityPediaMark } from '@/shared/brand/Logo';
 import { Metric } from '@/marketing/components/common/Metric';
 import { SignalBadge, type Temperature } from '@/marketing/components/common/SignalBadge';
 import { mockOpportunities } from '@/marketing/data/content';
@@ -127,11 +127,11 @@ export function OpportunityXUI({
       )}
       // Presentational mockup: not a real interface, so it is announced as an image.
       role="img"
-      aria-label="OpportunityX product interface: a dashboard listing opportunities with temperature, owner and recent team activity."
+      aria-label="OpportunityPedia product interface: a dashboard listing opportunities with temperature, owner and recent team activity."
     >
       {/* App chrome */}
       <div className="flex items-center gap-3 border-b border-white/10 bg-navy-deep px-3 py-2.5 md:px-4">
-        <OpportunityXMark className="[&>span]:text-[0.9375rem] md:[&>span]:text-base" />
+        <OpportunityPediaMark tone="inverse" className="text-[0.9375rem] md:text-base" />
         <div className="ml-2 hidden min-w-0 flex-1 items-center gap-2 border border-white/10 bg-white/[0.04] px-2.5 py-1.5 sm:flex">
           <Search aria-hidden="true" className="size-3 shrink-0 text-white/35" />
           <span className="truncate text-[0.6875rem] text-white/35">
